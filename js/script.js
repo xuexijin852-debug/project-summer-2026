@@ -61,6 +61,14 @@ Math.floor((now-startDate)/oneDay)+1;
 const remainingDays =
 Math.ceil((endDate-now)/oneDay);
 
+const passedDays =
+Math.floor((now-startDate)/oneDay)+1;
+
+const remainingDays =
+Math.ceil((endDate-now)/oneDay);
+
+alert("passedDays=" + passedDays);
+
 document.getElementById("daysLeft").textContent =
 "🔥 あと"+remainingDays+"日";
 
