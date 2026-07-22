@@ -50,24 +50,13 @@ endDate.setHours(0,0,0,0);
 const now = new Date();
 now.setHours(0,0,0,0);
 
-console.log("passedDays =", passedDays);
-console.log("remainingDays =", remainingDays);
-
 const oneDay = 1000 * 60 * 60 * 24;
 
 const passedDays =
-Math.floor((now-startDate)/oneDay)+1;
+Math.floor((now - startDate) / oneDay) + 1;
 
 const remainingDays =
-Math.ceil((endDate-now)/oneDay);
-
-const passedDays =
-Math.floor((now-startDate)/oneDay)+1;
-
-const remainingDays =
-Math.ceil((endDate-now)/oneDay);
-
-alert("passedDays=" + passedDays);
+Math.ceil((endDate - now) / oneDay);
 
 document.getElementById("daysLeft").textContent =
 "🔥 あと"+remainingDays+"日";
