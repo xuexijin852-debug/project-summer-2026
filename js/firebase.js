@@ -1,5 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyB5ZwOyYeqsPQR3wqTWNaHUGagp2NjHA04",
   authDomain: "project-summer-2026-12de8.firebaseapp.com",
@@ -11,4 +17,38 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-console.log("Firebase接続成功");
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const userName =
+document.getElementById("userName");
+
+loginBtn.addEventListener(
+  "click",
+  async function(){
+
+    try{
+
+      const result =
+      await signInWithPopup(
+        auth,
+        provider
+      );
+
+      userName.textContent =
+      result.user.displayName;
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+    }
+
+  }
+);
