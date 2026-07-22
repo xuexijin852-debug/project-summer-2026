@@ -42,8 +42,16 @@ if(savedTotal !== null){
 // ------------------------------
 
 const startDate = new Date("2026-07-18");
+startDate.setHours(0,0,0,0);
+
 const endDate = new Date("2026-08-27");
+endDate.setHours(0,0,0,0);
+
 const now = new Date();
+now.setHours(0,0,0,0);
+
+console.log("passedDays =", passedDays);
+console.log("remainingDays =", remainingDays);
 
 const oneDay = 1000 * 60 * 60 * 24;
 
