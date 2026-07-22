@@ -1,13 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
@@ -25,33 +18,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-console.log("Firestore接続成功");
-
-async function testFirestore() {
-
-  try {
-
-    await setDoc(
-      doc(db, "users", "test"),
-      {
-        goal: "Firestore成功"
-      }
-    );
-
-    console.log("Firestore保存成功");
-
-  } catch (error) {
-
-    console.error("Firestoreエラー", error);
-
-  }
-
-}
-
-testFirestore();
 
 const auth = getAuth(app);
 
