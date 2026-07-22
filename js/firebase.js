@@ -4,7 +4,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -29,6 +30,8 @@ console.log(loginBtn);
 
 const userName =
 document.getElementById("userName");
+const logoutBtn =
+document.getElementById("logoutBtn");
 const loginScreen =
 document.getElementById("loginScreen");
 
@@ -81,3 +84,12 @@ onAuthStateChanged(auth, (user) => {
   }
 
 });
+
+logoutBtn.addEventListener(
+  "click",
+  async function(){
+
+    await signOut(auth);
+
+  }
+);
