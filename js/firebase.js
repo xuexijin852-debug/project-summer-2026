@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebas
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -28,6 +29,11 @@ console.log(loginBtn);
 
 const userName =
 document.getElementById("userName");
+const loginScreen =
+document.getElementById("loginScreen");
+
+const mainApp =
+document.getElementById("mainApp");
 
 loginBtn.addEventListener(
   "click",
@@ -56,3 +62,22 @@ loginBtn.addEventListener(
 
   }
 );
+
+onAuthStateChanged(auth, (user) => {
+
+  if (user) {
+
+    loginScreen.style.display = "none";
+    mainApp.style.display = "block";
+
+    userName.textContent =
+      user.displayName;
+
+  } else {
+
+    loginScreen.style.display = "block";
+    mainApp.style.display = "none";
+
+  }
+
+});
