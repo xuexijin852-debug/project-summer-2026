@@ -30,6 +30,29 @@ const db = getFirestore(app);
 
 console.log("Firestore接続成功");
 
+async function testFirestore() {
+
+  try {
+
+    await setDoc(
+      doc(db, "users", "test"),
+      {
+        goal: "Firestore成功"
+      }
+    );
+
+    console.log("Firestore保存成功");
+
+  } catch (error) {
+
+    console.error("Firestoreエラー", error);
+
+  }
+
+}
+
+testFirestore();
+
 const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
