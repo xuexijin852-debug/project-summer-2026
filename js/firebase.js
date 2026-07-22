@@ -24,13 +24,17 @@ const provider = new GoogleAuthProvider();
 const loginBtn =
 document.getElementById("loginBtn");
 
+console.log(loginBtn);
+
 const userName =
 document.getElementById("userName");
 
 loginBtn.addEventListener(
   "click",
   async function(){
-console.log("ログインボタン押された");
+
+    console.log("ログインボタン押された");
+
     try{
 
       const result =
@@ -48,10 +52,6 @@ console.log("ログインボタン押された");
 
       console.error(error);
 
-    }
-
-  }
-);
     }
 
   }
