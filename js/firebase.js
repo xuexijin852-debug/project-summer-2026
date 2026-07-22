@@ -30,7 +30,7 @@ document.getElementById("userName");
 loginBtn.addEventListener(
   "click",
   async function(){
-
+console.log("ログインボタン押された");
     try{
 
       const result =
@@ -48,6 +48,10 @@ loginBtn.addEventListener(
 
       console.error(error);
 
+    }
+
+  }
+);
     }
 
   }
